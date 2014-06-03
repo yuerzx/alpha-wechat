@@ -14,9 +14,7 @@ $newmenu =  array(
 					'sub_button'=> array(
 						array('type' =>'click', 'name'=>'Agent Login','key'=>'Agent_Login'),
 						array('type' =>'click', 'name'=>'Subagent Apply', 'key'=>'Subagent_Apply'),
-						
 						)),
-				
 				array('name'=>'购置房产', 
 					'sub_button'=> array(
 						array('type' =>'click', 'name'=>'!!六月特惠房源!!', 'key'=>'Special_property'),
