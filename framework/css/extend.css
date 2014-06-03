@@ -2,7 +2,8 @@
     line-height: 1.6em;
 }
 
-.logo #logo{
+div.red_line .logo{
+	padding-top: 8px;
     max-height: 40px;
     max-width: 133.3px;
 }
@@ -26,41 +27,32 @@ div.content img{
 Business Card Design
 */
 
+
 .contact-info{position:relative;box-shadow:0 0 3px 2px #EEE;width:auto;_width:100%;padding:20px;background:#fbfbfb}
 .contact-info P{line-height:1.8em}
+.contact-info .table-view-cell{
+	padding-right: 11px;
+}
+.basic-info{display: inline;}
 
 .contact-info .info{
-    font-size: 17px;
+    font-size: 20px;
     margin: 2px;
     font-weight: bold;
-    padding-left: 34px;
-}
-.contact-info i.phoneico{
-    background: url('http://maifang-com-au.qiniudn.com/social.png') no-repeat 0 -32px;
-    width: 32px;
-    height: 32px;
-    display: block;
-    float: left;
+    display: inline;
 }
 
-.contact-info i.wechatico{
-    background: url('http://maifang-com-au.qiniudn.com/social.png') no-repeat 0 0;
-    width: 32px;
-    height: 32px;
-    display: block;
-    float: left;
+.contact-info .email{
+    font-weight: bold;
+    font-size: 0.9em;
+}
+.contact-info #name_phone{
+     color: #3071a9;
 }
 
-.contact-info i.weboico{
-    background: url('http://maifang-com-au.qiniudn.com/social.png') no-repeat -32px 0;
-    width: 32px;
-    height: 32px;
-    display: block;
-    float: left;
-}
 
-.contact_photo{margin:auto;max-width:150px;height:auto;}
-.contact_photo img{width:expression(this.width>150 ? '150px':true);max-width:150px;height:auto}
+.contact-photo{float: left;max-width:150px;height:auto;}
+.contact-photo img{width:expression(this.width>150 ? '150px':true);max-width:70%;height:auto}
 .contact_name{}
 .description{clear:both}
 .qrcode{position:absolute;right:15px;top:15px}

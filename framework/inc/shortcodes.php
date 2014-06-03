@@ -902,18 +902,19 @@ function mypassion_contact_info( $atts, $content = null ){
     $contact["photo_url"]=get_bloginfo('template_url').'/framework/images/default.png';
   }
 	return '<div class="contact-info card">
-                  <div class="contact_photo"><img src="'.$contact["photo_url"].'" /></div>
                     <div>
                     <ul class="table-view">
                     <li class="table-view-cell">
-                        <h4>'.$contact["name"].'</h4></li>
+                        <div style="width: 99%;">
+                        <div class="contact-photo"><img src="'.$contact["photo_url"].'"></div>
+                        <div class="basic-info"><h4>'.$contact["name"].'</h4><p>'.$contact["description"].'</p></div>
+                        </div>
+                        </li>
                     <li class="table-view-cell">
-                        <a href="tel:'.$contact["phone"].'" class="pull-left"><i class="phoneico"></i><p class=info>'.$contact["phone"].'</p></a></li>
+                        <a href="tel:'.$contact["phone"].'" class="pull-left"><i class="fa fa-phone-square fa-2x" id="name_phone"></i><p class="info">'.$contact["phone"].'</p></a></li>
                     <li class="table-view-cell">
-                        <a href="'.$contact["wechat_url"].'" target="_blank"><i class="wechatico"></i><p class=info>'.$contact["wechat"].'</p></a></li>
-                    <li class="table-view-cell">
-                        <a href="'.$contact["weibo_url"].'" target="_blank"><i class="weboico"></i><p class=info>'.$contact["weibo"].'</p></a></li>
-                    <li class="table-view-cell">'.$contact["description"].'</li></ul>
+                        <a href="mailto:'.$contact["email"].'?Subject=Enquiry%20From%App" target="_blank"><p class="email">'.$contact["email"].'</p></a></li>
+                    </ul>
                     </div>
                 </div>';
 }
