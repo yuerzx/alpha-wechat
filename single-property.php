@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Property Display Page
+ * Template Name: Members Display Page
  * Created by PhpStorm.
  * User: yuerzx
  * Date: 11/04/14
