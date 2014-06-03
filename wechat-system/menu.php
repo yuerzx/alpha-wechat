@@ -17,17 +17,17 @@ $newmenu =  array(
 						)),
 				array('name'=>'购置房产', 
 					'sub_button'=> array(
-						array('type' =>'click', 'name'=>'!!六月特惠房源!!', 'key'=>'Special_property'),
-						array('type' =>'click', 'name'=>'公寓项目','key'=>'Buy_property'),
-						array('type' =>'click', 'name'=>'别墅项目', 'key'=>'Sell_property'),
-						array('type' =>'click', 'name'=>'联排别墅', 'key'=>'Rent_property'),
+						array('type' =>'view',  'name'=>'!!六月特惠房源!!', 'url'=>'http://app.alphalynx.com.au/category/'),
+						array('type' =>'view',  'name'=>'公寓项目',     'url'=>'http://app.alphalynx.com.au/category/apartment/'),
+						array('type' =>'view',  'name'=>'别墅项目',     'url'=>'http://app.alphalynx.com.au/category/house/'),
+						array('type' =>'view',  'name'=>'联排别墅',     'url'=>'http://app.alphalynx.com.au/category/townhouse/'),
 						)),
 				array('name'=>'购房工具',
 					'sub_button'=>array(
 						array('type' =>'click', 'name'=>'贷款计算器', 'key'=>'Mortgage_Cal'),
 						array('type' =>'click', 'name'=>'贷款利率',   'key'=>'Mortgage_Rate'),
 						array('type' =>'click', 'name'=>'购房流程',   'key'=>'Process'),
-						array('type' =>'view', 'name'=>'联系团队',   'url'=>'http://app.alphalynx.com.au/team-members')
+						array('type' =>'view',  'name'=>'联系团队',   'url'=>'http://app.alphalynx.com.au/team-members/')
 					 )),
 		));
 $result = $weObj->createMenu($newmenu);

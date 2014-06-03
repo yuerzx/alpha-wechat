@@ -5,7 +5,6 @@
 	if(function_exists('register_nav_menus')){
 		register_nav_menus(array('main_menu' => 'Main Menu'));
 	}
-	
 
 /* ----------------------------------------------------------------------------------- */
 /*  ENQUEUE STYLES AND SCRIPTS
@@ -14,10 +13,8 @@ function my_init_method() {
 	wp_deregister_script( 'jquery' ); // 取消原有的 jquery 定义
 }
 add_action('init', 'my_init_method'); // 加入功能, 前台使用 wp_enqueue_script( '名称' ) 加載
-
 	function mypassion_scripts() {
-		global $admin_data; 
-		
+
 		/* ---------------------------------------------------------------------------------- */
 		/* Register Scripts
 		/* ---------------------------------------------------------------------------------- */
@@ -32,21 +29,17 @@ add_action('init', 'my_init_method'); // 加入功能, 前台使用 wp_enqueue_s
 
 	}
 	
-	add_action( 'wp_enqueue_scripts', 'mypassion_scripts' );  
-	
+	add_action( 'wp_enqueue_scripts', 'mypassion_scripts' );
 	function mypassion_styles(){
-		global $admin_data; 
-		
 		/* ---------------------------------------------------------------------------------- */
 		/* Register Stylesheets 
 		/* ---------------------------------------------------------------------------------- */
-		//wp_register_style('all', get_template_directory_uri().'/framework/css/all.css', array(), '1.0', 'all');
         wp_register_style('rathchet',get_template_directory_uri().'/framework/css/ratchet.min.css');
         wp_register_style('detail-extend',get_template_directory_uri().'/framework/css/extend.css');
-
+        wp_register_style('font-awesome', get_template_directory_uri().'/framework/css/font-awesome.min.css');
+        wp_enqueue_style('font-awesome');
         wp_enqueue_style('rathchet');
         wp_enqueue_style('detail-extend');
-		//wp_enqueue_style('all');
 	}  
 	add_action( 'wp_enqueue_scripts', 'mypassion_styles', 1 ); 
 
@@ -70,25 +63,9 @@ add_action('init', 'my_init_method'); // 加入功能, 前台使用 wp_enqueue_s
 /* ------------------------------------------------------------------------ */
 /*  Inlcudes
 /* ------------------------------------------------------------------------ */
-	//include_once('framework/inc/js.php'); // Enqueue Custom JavaScript
-	//include_once('framework/inc/css.php'); // Enqueue Custom Stylesheet
-	include_once('framework/inc/shortcodes.php'); // Load Shortcodes
-	//include_once('framework/inc/custom_functions.php'); // Custom functions
-	//include_once('framework/inc/mypassion-views.php'); // Custom Views
-	//include_once('framework/inc/sidebars.php'); // Sidebar Generator
-	//include_once('framework/inc/googlefonts.php'); // Google Fonts
-	//include_once('framework/inc/breadcrumbs.php'); // Load Breadcrumbs
-	//include_once('framework/inc/mypassion_pagination.php'); // Custom Pagination
-	//include_once('framework/inc/rating.php'); // Custom Pagination
-	
-	
 
-	//include_once('admin/index.php'); // Slightly Modified Options Framework
-	
-	//define( 'RWMB_URL', trailingslashit( get_template_directory_uri() . '/framework/meta-box' ) );
-    //define( 'RWMB_DIR', trailingslashit( get_template_directory() . '/framework/meta-box' ) );
-    //include_once( RWMB_DIR . 'meta-box.php');
-    //include_once('framework/inc/meta-boxes.php');
+	include_once('framework/inc/shortcodes.php'); // Load Shortcodes
+
 
 /* ----------------------------------------------------------------------------------- */
 /*  Add filter to hook when user press "insert into post" to include the attachment id
@@ -169,24 +146,13 @@ add_action('init', 'my_init_method'); // 加入功能, 前台使用 wp_enqueue_s
 		add_image_size( 'main-medium-thumb', 300, 162, true); // for the portfolio template
 		add_image_size( 'main-big-thumb', 620, 427, true); // for the portfolio template
 	}
-	
-/*-----------------------------------------------------------------------------------*/
-/*	Load Translation Text Domain
-/*-----------------------------------------------------------------------------------*/
 
-	load_theme_textdomain( 'framework', get_template_directory() . '/framework/languages' );
-	
-	$locale = get_locale();
-	$locale_file = get_template_directory() . "/framework/languages/$locale.php";
-	if ( is_readable($locale_file) )
-	    require_once($locale_file);
 	
 /* ----------------------------------------------------------------------------------- */
 /*  Add Post Formats
 /* ----------------------------------------------------------------------------------- */
 	//add_theme_support( 'post-formats', array('gallery', 'video'));
-	
-	
+
 	function signOffText() {  
 		return 'Thank you so much for reading! And remember to subscribe to our RSS feed.';  
 	}
@@ -236,10 +202,6 @@ function add_contact_sql(){
         name varchar(255) NOT NULL ,
         phone varchar(30),
         email varchar(255),
-        wechat varchar(255),
-        wechat_url varchar(255),
-        weibo varchar(255),
-        weibo_url varchar (255),
         description text,
         photo_url varchar(255),
         PRIMARY KEY(agency_id),
@@ -267,4 +229,3 @@ add_action('after_setup_theme','add_contact_sql');
  )
 ------------------*/
 include_once(TEMPLATEPATH.'/agency_management.php');
-?>

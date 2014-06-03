@@ -19,5 +19,9 @@
 
 <body>
     <!-- Make sure all your bars are the first things in your <body> -->
+<div class="content"> <!-- Start of Body Tag -->
+    <div class="red_line">
+        <img src="<?php echo get_template_directory_uri().'/framework/img/logo.png'; ?>" class="logo" style="margin: 0px 10px 5px 10px ; ">
+    </div>
 
 

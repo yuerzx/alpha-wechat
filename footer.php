@@ -1,6 +1,6 @@
 
-
-
+<!-- / Body Wrapper -->
+</div>
 <!-- Footer -->
 <footer>
     <nav class="bar bar-tab">
@@ -19,7 +19,6 @@
     </nav>
 </footer>
 <!-- / Footer -->
-<!-- / Body Wrapper -->
 
 <!-- GoStats JavaScript Based Code -->
 <script type="text/javascript" src="http://gostats.com/js/counter.js"></script>

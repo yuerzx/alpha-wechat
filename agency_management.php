@@ -20,7 +20,7 @@ function add_new_contact($args){
         $wpdb->insert(
             $table_name,
             $args,
-            array('%s','%s','%s','%s','%s','%s','%s','%s')
+            array('%s','%s','%s','%s','%s')
         );
         return true;
     }
@@ -71,7 +71,7 @@ function update_contact($cid=null,$args){
         $table_name,
         $args,
         array('agency_id'=>$cid),
-        array('%s','%s','%s','%s','%s','%s','%s','%s'),
+        array('%s','%s','%s','%s','%s'),
         array('%s')
     )){
         return true;
@@ -82,11 +82,8 @@ function update_contact($cid=null,$args){
   'name'=>'我的',
   'phone'=>'1',
   'email'=>'1',
-  'wechat'=>'1',
-  'weibo'=>'1',
   'description'=>'1',
   'photo_url'=>'1',
-  'qr_url'=>'1'
  );
 update_contact('17',$args);*/
 /*----------------------------------
@@ -211,10 +208,6 @@ function contact_admin_page(){?>
                 <p><span>姓名:</span><input type="text" name="info[name]" value="<?php echo $contact['name'];?>"/></p>
                 <p><span>电话:</span><input type="text" name="info[phone]" value="<?php echo $contact['phone'];?>"/></p>
                 <p><span>邮箱:</span><input type="text" name="info[email]" value="<?php echo $contact['email'];?>"/></p>
-                <p><span>Wechat:</span><input type="text" name="info[wechat]" value="<?php echo $contact['wechat'];?>"/></p>
-                <p><span>Wechat Url:</span><input type="text" name="info[wechat_url]" value="<?php echo $contact['wechat_url'];?>"/></p>
-                <p><span>Weibo:</span><input type="text" name="info[weibo]" value="<?php echo $contact['weibo'];?>"/></p>
-                <p><span>Weibo_url:</span><input type="text" name="info[weibo_url]" value="<?php echo $contact['weibo_url'];?>"/></p>
                 <p><span>描述:</span><textarea name="info[description]"/><?php echo $contact['description'];?></textarea></p>
                 <p><span>照片URL:</span><input type="text" id="upload_image" name="info[photo_url]" value="<?php echo $contact['photo_url'];?>"/><input type="button" id="upload_image_button" value="上传图片" class="button"/></p>
                 <p><input type="hidden" name="agency_id" value="<?php echo get_agency_id_by_name($_GET['name'])?>" /></p>
@@ -236,10 +229,6 @@ function contact_admin_page(){?>
                     <th class="manage-column column-title sortable desc cname" scope="col">姓名</th>
                     <th class="manage-column column-title sortable desc" scope="col">电话</th>
                     <th class="manage-column column-title sortable desc" scope="col">邮箱</th>
-                    <th class="manage-column column-title sortable desc" scope="col">Wechat</th>
-                    <th class="manage-column column-title sortable desc" scope="col">Wechat_url</th>
-                    <th class="manage-column column-title sortable desc" scope="col">Weibo</th>
-                    <th class="manage-column column-title sortable desc" scope="col">Weibo_url</th>
                     <th class="manage-column column-title sortable desc" scope="col">描述</th>
                     <th class="manage-column column-title sortable desc" scope="col">照片</th>
                     <th class="manage-column column-title sortable desc" scope="col">编辑</th>
@@ -255,10 +244,6 @@ function contact_admin_page(){?>
           <td class='alternate'>$contact[name]</td>
           <td class='alternate'>$contact[phone]</td>
           <td class='alternate'>$contact[email]</td>
-          <td class='alternate'>$contact[wechat]</td>
-          <td class='alternate'>$contact[wechat_url]</td>
-          <td class='alternate'>$contact[weibo]</td>
-          <td class='alternate'>$contact[weibo_url]</td>
           <td class='alternate'>$contact[description]</td>
           <td class='alternate'><img src='$contact[photo_url]'/></td>
 
@@ -269,10 +254,6 @@ function contact_admin_page(){?>
           <td>$contact[name]</td>
           <td>$contact[phone]</td>
           <td>$contact[email]</td>
-          <td>$contact[wechat]</td>
-          <td>$contact[wechat_url]</td>
-          <td>$contact[weibo]</td>
-          <td>$contact[weibo_url]</td>
           <td>$contact[description]</td>
           <td><img src='$contact[photo_url]'/></td>
             <td><a href='?page=contact_admin&contact_action=edit&name=$contact[name]'>修改</a></td>
@@ -330,10 +311,6 @@ function contact_add_page(){
             <p><span>姓名:</span><input type="text" name="info[name]" value="<?php echo $_POST['info']['name'];?>"/></p>
             <p><span>电话:</span><input type="text" name="info[phone]" value="<?php echo $_POST['info']['photo'];?>"/></p>
             <p><span>邮箱:</span><input type="text" name="info[email]" value="<?php echo $_POST['info']['email'];?>"/></p>
-            <p><span>Weichat:</span><input type="text" name="info[wechat]" value="<?php echo $_POST['info']['wechat'];?>"/></p>
-            <p><span>Weichat_url:</span><input type="text" name="info[wechat_url]" value="<?php echo $_POST['info']['wechat_url'];?>"/></p>
-            <p><span>Weibo:</span><input type="text" name="info[weibo]" value="<?php echo $_POST['info']['weibo'];?>"/></p>
-            <p><span>Weibo_url:</span><input type="text" name="info[weibo_url]" value="<?php echo $_POST['info']['weibo_url'];?>"/></p>
             <p><span>描述:</span><textarea name="info[description]"/><?php echo $_POST['info']['description'];?></textarea></p>
             <p><span>照片URL:</span><input type="text" id="upload_image" name="info[photo_url]" value="<?php echo $_POST['info']['photo_url'];?>"/><input type="button" id="upload_image_button" value="上传图片" class="button"/></p>
             <?php wp_nonce_field('add_contact','add_contact_nonce_field'); ?>
