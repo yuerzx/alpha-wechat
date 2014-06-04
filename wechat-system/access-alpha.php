@@ -44,7 +44,7 @@ switch($type) {
 			exit;
 			break;
 	case Wechat::MSGTYPE_EVENT:
-			if($events['event']=='subscribe') $weObj->text("您好，欢迎关注澳发地产集团，在这里你可以找到最详细的资讯！请回复相应的数字获得相应的服务，感谢您的关注	\n【1】最新楼盘	\n【2】房屋买卖	\n【3】房屋出租	\n【4】意见反馈	\n【5】联系团队")->reply();
+			if($events['event']=='subscribe') $weObj->text("您好，欢迎关注澳发地产集团，在这里你可以找到最详细的资讯！请通过菜单选择您希望的功能。并且您可以随时致电我们的销售团队获得最新的资讯 03 9826 8988")->reply();
 			if($events['event']=='CLICK'):
 			switch ($events['key']) {
 					case 'Company_intro':
