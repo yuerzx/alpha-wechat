@@ -97,15 +97,15 @@ get_header();
 
 
 <div style="height: 100%;">
-    <div id="gallery-1" class="royalSlider rsDefault visibleNearby">
-        <?php
-        while ( have_posts() ) : the_post();
-            ?>
-            <?php $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(),'large');?>
-            <a class="rsImg" href="<?=$large_image_url[0];?>" data-rsw="400" data-rsh="500"><?= the_title();?><span><?php echo mb_strimwidth(strip_tags(get_the_content()),0,140).'...'; ?></span></a>
+<div id="gallery-1" class="royalSlider rsDefault visibleNearby">
+    <?php
+    while ( have_posts() ) : the_post();
+    ?>
+        <?php $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(),'large');?>
+        <a class="rsImg" href="<?=$large_image_url[0];?>" data-rsw="400" data-rsh="500"><?= the_title();?><span><?php echo mb_strimwidth(strip_tags(get_the_content()),0,140).'...'; ?></span></a>
 
-        <?php endwhile;?>
-    </div></div>
+    <?php endwhile;?>
+</div></div>
 
 <script>
     // Important note! If you're adding CSS3 transition to slides, fadeInLoadedSlide should be disabled to avoid fade-conflicts.

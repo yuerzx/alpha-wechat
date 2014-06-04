@@ -35,11 +35,14 @@ add_action('init', 'my_init_method'); // 加入功能, 前台使用 wp_enqueue_s
 		/* Register Stylesheets 
 		/* ---------------------------------------------------------------------------------- */
         wp_register_style('rathchet',get_template_directory_uri().'/framework/css/ratchet.min.css');
-        wp_register_style('detail-extend',get_template_directory_uri().'/framework/css/extend.css');
+        if(!is_category()){
+            wp_register_style('detail-extend',get_template_directory_uri().'/framework/css/extend.css');
+            wp_enqueue_style('detail-extend');
+        }
         wp_register_style('font-awesome', get_template_directory_uri().'/framework/css/font-awesome.min.css');
         wp_enqueue_style('font-awesome');
         wp_enqueue_style('rathchet');
-        wp_enqueue_style('detail-extend');
+
 	}  
 	add_action( 'wp_enqueue_scripts', 'mypassion_styles', 1 ); 
 
