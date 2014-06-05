@@ -14,15 +14,18 @@
         <ul class="table-view">
             <li class="table-view-cell short">
                 <div style="width: 99%;">
-                <div class="contact-photo"><img src="http://127.0.0.1/alphax/wp-content/uploads/2014/04/jason.png"></div>
-                <div class="basic-info"><h4>Jason</h4><p>I know who you are </p></div>
+                <div class="contact-photo"><img src="http://app.alphalynx.com.au/wp-content/uploads/2014/06/agent-Ben1-230x300.jpg"></div>
+                <div class="basic-info"><h4>Jason</h4></div>
                 </div>
-                
+            </li>
+            <li class="table-view-cell">
+                <h5>Project Marketing Manager</h5>
             </li>
             <li class="table-view-cell">
                 <a href="tel:0488888888" class="pull-left"><i class="fa fa-phone-square fa-2x" id="name_phone"></i>
                     <p class="info">0488888888</p>
-                </a><p><a href="tel:0488888888" class="pull-left"></a></p></li>
+                </a><p><a href="tel:0488888888" class="pull-left"></a></p>
+            </li>
             <li class="table-view-cell">
                 <a href="mailto:ethan.sun@alphalynx.com.au?Subject=Enquiry%20From%App" target="_blank">
                     <p class="email">ethan.sun@alphalynx.com.au</p>

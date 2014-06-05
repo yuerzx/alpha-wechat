@@ -102,7 +102,7 @@ get_header();
     while ( have_posts() ) : the_post();
     ?>
         <?php $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(),'large');?>
-        <a class="rsImg" href="<?=$large_image_url[0];?>" data-rsw="400" data-rsh="500"><?= the_title();?><span><?php echo mb_strimwidth(strip_tags(get_the_content()),0,140).'...'; ?></span></a>
+        <b class="rsImg" href="<?=$large_image_url[0];?>" data-rsw="500" data-rsh="600"><?= the_title();?><span><?php echo mb_strimwidth(strip_tags(get_the_content()),0,140).'...'; ?></a></span></b>
 
     <?php endwhile;?>
 </div></div>
@@ -134,8 +134,8 @@ get_header();
         }).data('royalSlider');
 
         // link to fifth slide from slider description.
-        $('.slide4link').click(function(e) {
-            si.goTo(4);
+        $('.rsGCaption').click(function(e) {
+            window.location.href = "http://stackoverflow.com";
             return false;
         });
     });

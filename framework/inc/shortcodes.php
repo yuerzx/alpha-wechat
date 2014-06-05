@@ -907,9 +907,10 @@ function mypassion_contact_info( $atts, $content = null ){
                     <li class="table-view-cell">
                         <div style="width: 99%;">
                         <div class="contact-photo"><img src="'.$contact["photo_url"].'"></div>
-                        <div class="basic-info"><h4>'.$contact["name"].'</h4><p>'.$contact["description"].'</p></div>
+                        <div class="basic-info"><h4>'.$contact["name"].'</h4></div>
                         </div>
                         </li>
+                    <li class="table-view-cell"><h5>'.$contact["description"].'</h5></li>
                     <li class="table-view-cell">
                         <a href="tel:'.$contact["phone"].'" class="pull-left"><i class="fa fa-phone-square fa-2x" id="name_phone"></i><p class="info">'.$contact["phone"].'</p></a></li>
                     <li class="table-view-cell">
@@ -924,133 +925,7 @@ function mypassion_contact_info( $atts, $content = null ){
 function wiki_link($atts,$content = null){
   return '<a href="http://wiki.maifang.com.au/'.$content.'">'.$content.'</a>';
 }
-/*----------------------------
- *房产搜索页面
------------------------------*/
-function house_search_form($atts,$content = null){
-	extract(shortcode_atts(array(
-		'project_name'=>'',
-	),$atts));
-	$string.= '<h5 class="line"><span>自助选房</span></h5><span class="liner"></span> <div class="form">
-<form class="jqtransform" method="get" action="'.get_option('search_result_page').'" target="_blank">
-<table>
-	<tr><td><label for="house_num">房间数</label></td>
-		<td>
-			<p class="clearfix">
-			<select name="bedroom">';
-				for($i=1;$i<=5;$i++){
-					$string.= '<option value="'.$i.'"';
-					if($_POST['bedroom']==$i){
-						$string.='selected="selected"';
-					}
-					$string.='>'.$i.'</option>';
-				}
-			$string.='</select></p>
-		</td>
-	</tr>
-	<tr><td><label for="price">价格</label></td>
-		<td>
-			<p class="clearfix">
-			<select name="price">';
-				 $temp_arr = array(''=>'任意','300-349'=>'300-349K','350-399'=>'350-399K','400-449'=>'400-449K','450-499'=>'450-499K','500-549'=>'500-549K','550-599'=>'550-599K','600-649'=>'600-649K','650-700'=>'650-700K');
-					foreach($temp_arr as $temp=>$value){ 
-				
-				$string.='<option value="'.$temp.'"';
-					if($_POST['price']==$temp){
-						$string.='selected="selected"';
-					}
-				$string.='>'.$value.'</option>';
-				}
-			$string.='</select></p>
-		</td>
-	</tr>
-	<tr><td><label for="towards">朝向</label></td>
-		<td>
-			<p class="clearfix">
-			<select name="towards">';
-				$temp_arr = array(''=>'任意','东'=>'东','西'=>'西','南'=>'南','北'=>'北');
-					foreach($temp_arr as $temp=>$value){
-						$string.= '<option value="'.$temp.'"';
-						if($_POST['towards']==$temp){
-							$string.='selected="selected"';
-						}
-						$string.='>'.$value.'</option>';
-					}
-			$string.='</select></p>
-		</td>
-	</tr>
-	<tr>
-		<td><label for="car_park">车位</label></td>
-		<td>
-			<p class="clearfix">
-				<select name="car_park">';
-				 $temp_arr = array(''=>'任意','1'=>'1','2'=>'2','3'=>'3');
-				 foreach($temp_arr as $temp=>$value){
-					$string.= '<option value="'.$temp.'"';
-					if($_POST['car_park']==$temp){
-						$string.='selected="selected"';
-					}
-					$string .='>'.$value.'</option>';
-				}
-				$string.='</select></p>
-		</td>
-	</tr>
-	<tr>
-		<td><label for="bath">卫生间</label></td>
-		<td>
-			<p class="clearfix">
-			<select name="bath">';
-				 $temp_arr = array(''=>'任意','1'=>'1','2'=>'2','3'=>'3');
-				 foreach($temp_arr as $temp=>$value){
-					$string.='<option value="'.$temp.'"';
-					if($_POST['bath']==$temp){
-						$string.= 'selected="selected"';
-					}
-					$string.='>'.$value.'</option>';
-				}
-			$string.='</select></p>
-		</td>
-	</tr>
-	<tr>
-		<td><label for="house_level">楼层</label></td>
-		<td>
-			<p class="clearfix">
-			<select name="house_level">
-				<option value="">任意</option>';
-				for($i=1;$i<=30;$i++){
-					$string.='<option value="'.$i.'"';
-						if($_POST['house_level']==$i){
-							$string.= 'selected="selected"';
-						}
-						$string.='>'.$i.'</option>';
-				} 
-			$string.='</select></p>
-		</td>
-	</tr>
-	<tr>
-		<td><label for="int_m2">内部面积</label></td>
-		<td>
-			<p class="clearfix">
-			<select name="int_m2">';
-				 $temp_arr = array(''=>'任意','40-50'=>'40-50','51-60'=>'51-60','61-70'=>'61-70','71-80'=>'71-80');
-					foreach($temp_arr as $temp=>$value){ 
-				
-				$string.='<option value="'.$temp.'"';
-				if($_POST['int_m2']==$temp){
-					$string.= 'selected="selected"';
-					}
-				$string.='>'.$value.'</option>';
-			 }
-			$string.='</select></p>
-			<input type="hidden" name="project_name" value="'.$project_name.'" />
-		</td>
-	</tr>
-	<tr><td></td><td><input type="hidden" name="current_page" value="1" /><input type="submit" value="提交"/></td></tr>
-</table> 
-</form>
-</div>';
-return $string;
-}
+
 /* ----------------------------------------------------- */
 /* Activate Shortcodes */
 /* ----------------------------------------------------- */
