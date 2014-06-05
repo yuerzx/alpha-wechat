@@ -910,7 +910,7 @@ function mypassion_contact_info( $atts, $content = null ){
                         <div class="basic-info"><h4>'.$contact["name"].'</h4></div>
                         </div>
                         </li>
-                    <li class="table-view-cell"><h5>'.$contact["description"].'</h5></li>
+                    <li class="table-view-cell"><h5 style="margin:3px;">'.$contact["description"].'</h5></li>
                     <li class="table-view-cell">
                         <a href="tel:'.$contact["phone"].'" class="pull-left"><i class="fa fa-phone-square fa-2x" id="name_phone"></i><p class="info">'.$contact["phone"].'</p></a></li>
                     <li class="table-view-cell">
