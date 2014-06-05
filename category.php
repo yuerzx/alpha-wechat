@@ -35,7 +35,7 @@ get_header();
     .visibleNearby .rsGCaption span {
         display: block;
         clear: both;
-        color: #bbb;
+        color: #000000;
         font-size: 14px;
         line-height: 22px;
     }
@@ -101,8 +101,9 @@ get_header();
         <?php
         while ( have_posts() ) : the_post();
             ?>
-            <?php $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(),'large');?>
-            <a class="rsImg" href="<?=$large_image_url[0];?>" data-rsw="400" data-rsh="500"><?= the_title();?><span><?php echo mb_strimwidth(strip_tags(get_the_content()),0,140).'...'; ?></span></a>
+        <?php $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(),'large');?>
+        <a class="rsImg" href="<?=$large_image_url[0];?>" data-rsw="400" data-rsh="500">
+            <span url="<?= the_permalink();?>" onclick="ToUrl($(this).attr('url'))" style="cursor:pointer;"><h4><?= the_title();?></h4><span><?php echo mb_strimwidth(strip_tags(get_the_content()),0,140).'...'; ?></span></span></a>
 
         <?php endwhile;?>
     </div></div>
@@ -139,6 +140,9 @@ get_header();
             return false;
         });
     });
+    function ToUrl(url){
+        location.href=url;
+    }
 </script>
 
 <script src="<?= get_template_directory_uri() ?>/framework/royalslider/jquery.royalslider.min.js"></script>
